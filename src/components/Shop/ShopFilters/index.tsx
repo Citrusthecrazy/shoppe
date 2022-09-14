@@ -1,5 +1,9 @@
-import React, { FC } from "react";
-
+import { Category } from "@chec/commerce.js/types/category";
+import { FC, useState } from "react";
+import { useQuery } from "react-query";
+import { SortByFilterSelect } from "../..";
+import commerce from "../../../lib/commerce";
+import CategoryFilterSelect from "../CategoryFilterSelect";
 type ShopFiltersProps = {
   isOpen: boolean;
   close: () => void;
@@ -18,6 +22,14 @@ const ShopFilters: FC<ShopFiltersProps> = ({ isOpen, close }) => {
           Close
         </button>
       </div>
+
+      <div className="mb-4" />
+
+      <CategoryFilterSelect />
+
+      <div className="mb-4" />
+
+      <SortByFilterSelect />
     </div>
   );
 };

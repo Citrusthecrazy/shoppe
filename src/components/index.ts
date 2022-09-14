@@ -8,6 +8,8 @@ import HomeSearch from "./Home/HomeSearch";
 import ProductCard from "./ProductCard";
 import ProductsList from "./Shop/ProductsList";
 import ShopFilters from "./Shop/ShopFilters";
+import CategoryFilterSelect from "./Shop/CategoryFilterSelect";
+import SortByFilterSelect from "./Shop/SortByFilterSelect";
 
 export {
   HomeSearch,
@@ -20,4 +22,6 @@ export {
   NavLink,
   ProductsList,
   ShopFilters,
+  CategoryFilterSelect,
+  SortByFilterSelect,
 };

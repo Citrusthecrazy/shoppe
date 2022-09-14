@@ -17,7 +17,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             className="w-full h-[136px] lg:h-[380px] object-cover rounded-[4px]"
           />
         </Link>
-        <button className="absolute bottom-0 right-0 left-0 translate-y-16 bg-white bg-opacity-50 font-bold h-16 group-hover:translate-y-0 transition-transform duration-150">
+        <button className="hidden lg:block absolute bottom-0 right-0 left-0 translate-y-16 bg-white bg-opacity-50 font-bold h-16 group-hover:translate-y-0 transition-transform duration-150">
           ADD TO CART
         </button>
       </div>
