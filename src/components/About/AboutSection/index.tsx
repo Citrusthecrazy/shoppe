@@ -15,13 +15,15 @@ const AboutSection: FC<AboutSectionProps> = ({
 }) => {
   return (
     <section>
-      <h2 className="text-xl">{title}</h2>
+      <h2 className="text-xl lg:text-[36px]">{title}</h2>
       <div className="mb-3" />
-      <img src={image} alt="top trends" className="w-full" />
+      <img src={image} alt="top trends" className="w-full object-cover" />
       <div className="mb-4" />
-      <p className="text-xs leading-5">{description}</p>
+      <p className="text-xs leading-5 lg:text-base">{description}</p>
       <div className="mb-4" />
-      {description2 && <p className="text-xs leading-5">{description2}</p>}
+      {description2 && (
+        <p className="text-xs leading-5 lg:text-base  ">{description2}</p>
+      )}
     </section>
   );
 };
