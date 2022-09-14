@@ -10,6 +10,7 @@ const ProductsList = () => {
     async () => {
       const { data: productList } = await commerce.products.list({
         limit: 6,
+        sortDirection: searchParams.get("sortBy") || "asc",
       });
       return productList;
     },
