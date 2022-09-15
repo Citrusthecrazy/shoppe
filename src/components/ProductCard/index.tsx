@@ -10,7 +10,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="cursor-pointer">
       <div className="relative overflow-hidden group">
-        <Link to={`/shop/${product.name}`}>
+        <Link to={`/shop/${product.id}`}>
           <img
             src={product.image?.url || "https://via.placeholder.com/136x136"}
             alt={product.name}
