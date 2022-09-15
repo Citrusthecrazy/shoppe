@@ -1,12 +1,23 @@
-import React from "react";
 import { useQuery } from "react-query";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import commerce from "../../lib/commerce";
 const ProductPage = () => {
   const { id: productId } = useParams();
-  const navigate = useNavigate();
   if (!productId) {
-    return navigate("/");
+    return (
+      <main className="mx-4 lg:mx-auto lg:max-w-[1248px]">
+        <div className="mb-9" />
+        <h1>There was an error fetching your request</h1>
+        <div className="mb-4" />
+        <span>
+          Click{" "}
+          <Link to="/" className="font-semibold text-accent">
+            here{" "}
+          </Link>
+          to go back to home page
+        </span>
+      </main>
+    );
   }
   const {
     data: product,
