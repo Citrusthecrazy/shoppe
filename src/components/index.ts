@@ -11,6 +11,7 @@ import ShopFilters from "./Shop/ShopFilters";
 import CategoryFilterSelect from "./Shop/CategoryFilterSelect";
 import SortByFilterSelect from "./Shop/SortByFilterSelect";
 import AboutSection from "./About/AboutSection";
+import CartItem from "./Cart/CartItem";
 
 export {
   HomeSearch,
@@ -26,4 +27,5 @@ export {
   CategoryFilterSelect,
   SortByFilterSelect,
   AboutSection,
+  CartItem,
 };

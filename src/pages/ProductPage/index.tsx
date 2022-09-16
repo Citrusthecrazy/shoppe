@@ -1,8 +1,10 @@
-import { useQuery } from "react-query";
+import { useState } from "react";
+import { useMutation, useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import commerce from "../../lib/commerce";
 const ProductPage = () => {
   const { id: productId } = useParams();
+  const [itemAddedToCart, setItemAddedToCart] = useState(false);
   if (!productId) {
     return (
       <main className="mx-4 lg:mx-auto lg:max-w-[1248px]">
@@ -19,6 +21,20 @@ const ProductPage = () => {
       </main>
     );
   }
+  const addToCartMutation = useMutation(
+    ["addToCart"],
+    async () => {
+      await commerce.cart.add(productId, 1);
+    },
+    {
+      onSuccess: () => {
+        setItemAddedToCart(true);
+      },
+      onError: (error) => {
+        console.error(error);
+      },
+    }
+  );
   const {
     data: product,
     isLoading,
@@ -31,7 +47,6 @@ const ProductPage = () => {
     },
     {
       refetchOnWindowFocus: false,
-      refetchOnMount: false,
     }
   );
   if (isLoading || isRefetching)
@@ -56,7 +71,9 @@ const ProductPage = () => {
         </span>
       </main>
     );
-
+  const handleAddToCart = async () => {
+    await addToCartMutation.mutateAsync();
+  };
   return (
     <main className="mx-4 lg:mx-auto lg:max-w-[1248px] lg:grid lg:grid-cols-2">
       <div className="mb-4 lg:hidden" />
@@ -79,8 +96,13 @@ const ProductPage = () => {
           {product?.description.replace(/<(.|\n)*?>/g, "")}
         </p>
         <div className="mb-6" />
-        <button className="bg-white text-black py-[6px] w-full rounded-md border border-black uppercase hover:bg-black hover:text-white transition-colors duration-150">
-          Add to cart
+        <button
+          disabled={addToCartMutation.isLoading || itemAddedToCart}
+          className="bg-white text-black py-[6px] w-full rounded-md border
+           border-black uppercase hover:bg-black hover:text-white transition-colors
+            duration-150 disabled:text-darkGray disabled:border-darkGray disabled:cursor-not-allowed disabled:hover:bg-white"
+          onClick={handleAddToCart}>
+          {itemAddedToCart ? "Item added to cart" : "Add to cart"}
         </button>
 
         <div className="mb-6 lg:flex-grow" />
