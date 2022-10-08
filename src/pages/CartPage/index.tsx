@@ -16,7 +16,7 @@ const CartPage = () => {
     },
     {
       refetchOnWindowFocus: false,
-      refetchOnMount: false,
+      refetchOnMount: true,
     }
   );
 
