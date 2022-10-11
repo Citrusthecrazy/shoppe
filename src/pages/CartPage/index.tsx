@@ -95,7 +95,9 @@ const CartPage = () => {
                       some of my other projects, please visit my{" "}
                       <a
                         href="https://github.com/Citrusthecrazy?tab=repositories"
-                        className="text-accent text-bold">
+                        className="text-accent text-bold"
+                        target="_blank"
+                        rel="noopener noreferrer">
                         GitHub
                       </a>
                       !
